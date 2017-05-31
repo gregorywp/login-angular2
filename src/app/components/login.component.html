@@ -1,0 +1,22 @@
+<section>
+	<div class="row">
+	    <form name="form" class="login" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+	        <h2>Please sign in.</h2>
+	        <p>Hint: try 'admin' for username and 'password' for password</p>
+	        
+	        <div>
+	        	<label for="username">Username<span *ngIf="f.submitted && !username.valid"> Required</span></label>
+	        	<input type="text" name="username" [(ngModel)]="model.username" #username="ngModel" required />
+	        </div>
+
+	        <div>
+	       		<label for="password">Password<span *ngIf="f.submitted && !password.valid"> Required</span></label>
+		        <input type="text" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+	        </div>
+
+	        <button type="submit" class="success button">Sign In</button>
+
+	        <div *ngIf="error">{{error}}</div>
+	    </form>
+	</div>
+</section>
